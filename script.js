@@ -98,3 +98,46 @@ ham?.addEventListener('click', ()=>{
 })();
 
 
+// スマホ専用の滑らかタッチ処理（PCは従来通り）
+(() => {
+  const ba = document.querySelector('.ba');
+  if (!ba) return;
+
+  // スマホ判定
+  if (!window.matchMedia("(max-width: 767px)").matches) return;
+
+  const after  = ba.querySelector('.ba__after');
+  const handle = ba.querySelector('.ba__handle span') || ba.querySelector('.ba__handle');
+
+  const setPos = (clientX) => {
+    const rect = ba.getBoundingClientRect();
+    let x = (clientX - rect.left) / rect.width;
+    x = Math.max(0, Math.min(1, x));
+    after.style.clipPath = `inset(0 0 0 ${x * 100}%)`;
+    if (handle) handle.style.left = `${x * 100}%`;
+  };
+
+  let currentX = null;
+  let needsUpdate = false;
+
+  // rAFループで滑らかに更新
+  const update = () => {
+    if (needsUpdate && currentX !== null) {
+      setPos(currentX);
+      needsUpdate = false;
+    }
+    requestAnimationFrame(update);
+  };
+  update();
+
+  // タッチイベント
+  ba.addEventListener("touchstart", (e) => {
+    currentX = e.touches[0].clientX;
+    needsUpdate = true;
+  }, { passive: true });
+
+  ba.addEventListener("touchmove", (e) => {
+    currentX = e.touches[0].clientX;
+    needsUpdate = true;
+  }, { passive: true });
+})();

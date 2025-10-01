@@ -617,3 +617,11 @@ html { -webkit-text-size-adjust: 100% }
     padding: 6px 10px;
   }
 }
+
+/* スマホだけタッチ操作を安定させる */
+@media (max-width: 767px) {
+  .ba {
+    touch-action: none;   /* ブラウザの標準スクロール操作を無効化 */
+    user-select: none;    /* テキスト選択防止 */
+  }
+}
