@@ -397,3 +397,78 @@ body{
   object-fit: cover; /* 画像を枠いっぱいにトリミングして収める */
   display: block;
 }
+
+/* ===== Mobile fixes (スマホ最適化の上書き) ===== */
+
+/* 画像・動画ははみ出させない */
+img, video { max-width: 100%; height: auto; display: block }
+
+/* Safariの自動拡大対策 */
+html { -webkit-text-size-adjust: 100% }
+
+/* 共通余白を少しタイトに */
+.container { padding-inline: 16px }
+.section { padding: 56px 0 }
+
+/* ---- ヘッダー ---- */
+@media (max-width: 960px){
+  .nav{ display:none }            /* PCナビは隠す（ハンバーガーだけ） */
+  .hamburger{ display:block; margin-left:auto }
+  .header__inner{ padding-inline: 12px }
+}
+
+/* ---- ヒーロー ---- */
+@media (max-width: 768px){
+  .hero{ padding: 88px 0 36px }
+  .hero__title{ font-size: clamp(26px, 7vw, 36px); line-height: 1.18 }
+  .hero__lead, .hero__desc{ font-size: 0.98rem; max-width: 680px; margin-inline:auto }
+  .hero__visual{ padding: 12px; margin-top: 12px }
+  .ba{ aspect-ratio: 4/3 }        /* 16:9だと縦長端末で潰れるため4:3へ */
+  .hero__below .btn{ width: 100% }/* CTAは全幅 */
+  .hero__note{ font-size: .95rem; margin-top: 10px }
+  /* 「“魅力的な一枚”に」を無理に1行固定しない */
+  .nowrap{ white-space: normal }
+}
+
+/* ---- 特徴（Feature rows）---- */
+@media (max-width: 960px){
+  .feature-rows{ gap: 36px }
+  .feature-row{
+    display: grid;
+    grid-template-columns: 1fr;   /* 1カラムに */
+    gap: 14px;
+    align-items: start;
+  }
+  .feature-row__media{
+    order: -1;                    /* 画像を先に */
+    aspect-ratio: 16/9;
+  }
+  .feature-row__body h3{ font-size: clamp(18px, 5vw, 22px) }
+}
+
+/* ---- 活用例（Usecases）---- */
+@media (max-width: 960px){
+  .grid-3{ grid-template-columns: 1fr !important; gap: 16px }
+  .card__media{ height: 180px }   /* 伸びすぎ防止 */
+}
+
+/* ---- 料金 ---- */
+@media (max-width: 960px){
+  .pricing.grid-4{ grid-template-columns: 1fr !important; gap: 16px }
+  .plan{ padding: 16px }
+  .plan .btn{ width: 100% }
+}
+
+/* ---- 豪華CTA (#signup の cta--lux) ---- */
+@media (max-width: 960px){
+  .cta--lux{
+    grid-template-columns: 1fr;   /* ロゴ上・本文下の縦並び */
+    padding: 20px;
+  }
+  .cta__media{ height: 180px; margin-bottom: 8px }
+  .trustchips{ gap: 8px }
+  .trustchips li{ font-size: .9rem }
+}
+
+/* 保険：どの要素も横スクロールを誘発しないように */
+* { min-width: 0 }
