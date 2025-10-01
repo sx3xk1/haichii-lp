@@ -564,3 +564,19 @@ html { -webkit-text-size-adjust: 100% }
   .hero__desc{ font-size: .96rem }
   .ba{ aspect-ratio: 1; }          /* 正方形寄りで切れにくい */
 }
+
+/* スマホ向け（幅767px以下） */
+@media (max-width: 767px) {
+  .hero__desc {
+    font-size: 0.85rem;   /* 説明文だけ小さく */
+    line-height: 1.5;     /* 行間を広めにして読みやすく */
+    margin-top: 0.6em;    /* 見出しとの間をちょっと空ける */
+  }
+}
+
+@media (max-width: 767px) {
+  .hero__title {
+    margin-top: 1px;  /* デフォルトより少しだけ余白を詰める */
+  }
+}
+
