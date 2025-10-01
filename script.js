@@ -30,40 +30,71 @@ ham?.addEventListener('click', ()=>{
   nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
 });
 
-// Before/After スライダー
-(function(){
-  const wrap = document.querySelector('.ba');
-  if(!wrap) return;
-  const after = wrap.querySelector('.ba__after');
-  const line = wrap.querySelector('.ba__handle span');
+// Before/After スライダー（ホバー追従・クリックジャンプ・ドラッグ・キーボード対応）
+(() => {
+  const ba = document.querySelector('.ba');
+  if (!ba) return;
 
-  const set = (x)=>{
-    const rect = wrap.getBoundingClientRect();
-    let pct = (x - rect.left) / rect.width;
-    pct = Math.max(0.02, Math.min(0.98, pct));
-    after.style.clipPath = `inset(0 0 0 ${pct*100}%)`;
-    line.style.left = `${pct*100}%`;
+  const after  = ba.querySelector('.ba__after');
+  const handle = ba.querySelector('.ba__handle span') || ba.querySelector('.ba__handle');
+
+  const setPos = (clientX) => {
+    const rect = ba.getBoundingClientRect();
+    let x = (clientX - rect.left) / rect.width;       // 0..1
+    x = Math.max(0, Math.min(1, x));
+    after.style.clipPath = `inset(0 0 0 ${x * 100}%)`;
+    if (handle) handle.style.left = `${x * 100}%`;
+    ba.setAttribute("aria-valuenow", Math.round(x * 100));
   };
 
-  const onMove = (ev)=>{
-    if(typeof ev.touches !== 'undefined'){
-      set(ev.touches[0].clientX);
+  // 初期位置は中央
+  setPos(ba.getBoundingClientRect().left + ba.clientWidth / 2);
+
+  // アクセシビリティ
+  ba.setAttribute("tabindex", "0");
+  ba.setAttribute("role", "slider");
+  ba.setAttribute("aria-valuemin", "0");
+  ba.setAttribute("aria-valuemax", "100");
+
+  let dragging = false;
+
+  // ドラッグ（マウス/タッチ統一）
+  ba.addEventListener("pointerdown", (e) => {
+    dragging = true;
+    ba.setPointerCapture(e.pointerId);
+    setPos(e.clientX);
+  });
+  ba.addEventListener("pointermove", (e) => {
+    if (dragging) {
+      setPos(e.clientX);
     } else {
-      set(ev.clientX);
+      // PCはホバーでも追従（スマホは無視）
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        setPos(e.clientX);
+      }
     }
-  };
+  });
+  ba.addEventListener("pointerup",   () => { dragging = false; });
+  ba.addEventListener("pointercancel",() => { dragging = false; });
 
-  // 初期位置
-  set(wrap.getBoundingClientRect().left + wrap.clientWidth * .5);
+  // クリックした位置にパッと移動
+  ba.addEventListener("click", (e) => setPos(e.clientX));
 
-  // ドラッグ / マウス移動
-  let drag = false;
-  wrap.addEventListener('mousedown', e=>{drag = true; onMove(e);});
-  wrap.addEventListener('mousemove', e=>{if(drag) onMove(e);});
-  window.addEventListener('mouseup', ()=> drag = false);
+  // キーボード操作 ← → / Home / End
+  ba.addEventListener("keydown", (e) => {
+    const m = after.style.clipPath.match(/inset\(0 0 0 ([\d.]+)%\)/);
+    let x = m ? parseFloat(m[1]) / 100 : 0.5;
+    const step = e.shiftKey ? 0.10 : 0.05;
 
-  // タッチ
-  wrap.addEventListener('touchstart', onMove, {passive:true});
-  wrap.addEventListener('touchmove', onMove, {passive:true});
+    if (e.key === "ArrowLeft")  x = Math.max(0, x - step);
+    if (e.key === "ArrowRight") x = Math.min(1, x + step);
+    if (e.key === "Home")       x = 0;
+    if (e.key === "End")        x = 1;
+
+    after.style.clipPath = `inset(0 0 0 ${x * 100}%)`;
+    if (handle) handle.style.left = `${x * 100}%`;
+    ba.setAttribute("aria-valuenow", Math.round(x * 100));
+  });
 })();
+
 
