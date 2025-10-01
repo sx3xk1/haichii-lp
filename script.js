@@ -66,3 +66,4 @@ ham?.addEventListener('click', ()=>{
   wrap.addEventListener('touchstart', onMove, {passive:true});
   wrap.addEventListener('touchmove', onMove, {passive:true});
 })();
+

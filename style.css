@@ -512,26 +512,8 @@ html { -webkit-text-size-adjust: 100% }
     font-size: 1.02rem;
   }
 
-  /* BA（ビフォーアフター）を少し小ぶりにしつつ余白整える */
-  .hero__visual{ padding: 12px; margin-top: 6px; }
-  .ba{ aspect-ratio: 4/3; border-radius: 12px; }
-  .ba__handle::after{ width: 38px; height: 38px; } /* 取っ手少し小さく */
+ 
 
-  /* スライドヒント（矢印アニメ） */
-  .ba__hint{
-    position: absolute; left: 50%; bottom: 10px; transform: translateX(-50%);
-    font-size: .9rem; color: #e9f2ff; opacity: .92;
-    background: rgba(0,0,0,.28); padding: 6px 10px; border-radius: 999px;
-    pointer-events: none; backdrop-filter: blur(6px);
-  }
-  .ba__hint::before, .ba__hint::after{
-    content: "↔"; display:inline-block; margin:0 6px; opacity:.9;
-    animation: nudge 1.6s ease-in-out infinite;
-  }
-  @keyframes nudge{
-    0%,100%{ transform: translateX(0) }
-    50%{ transform: translateX(4px) }
-  }
 
   /* 豪華CTA（#signup）一枚構成の見栄え調整 */
   .cta--lux{ padding: 18px; gap: 16px }
@@ -580,3 +562,58 @@ html { -webkit-text-size-adjust: 100% }
   }
 }
 
+/* PC（マウス）だけスライダーっぽいカーソルに */
+@media (hover: hover) and (pointer: fine) {
+  .ba { cursor: ew-resize; }
+  .ba__handle span { background: rgba(255,255,255,.85); }
+}
+
+/* PC用（大きめ） */
+@media (min-width: 768px) {
+  .ba__handle span { width: 4px; }
+  .ba__handle::after { width: 60px; height: 60px; }
+}
+
+/* スマホ用（少し小さめ） */
+@media (max-width: 767px) {
+  .ba__handle span { width: 2px; }
+  .ba__handle::after { width: 38px; height: 38px; }
+}
+
+/* ===== Before/After スライドヒント（常時表示） ===== */
+.ba__hint{
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  z-index: 6;                  /* 画像や線より前に */
+  font-size: 1rem;             /* PCは少し大きめ */
+  color: #e9f2ff;
+  opacity: .95;
+  background: rgba(0,0,0,.35);
+  padding: 8px 14px;
+  border-radius: 999px;
+  pointer-events: none;
+  backdrop-filter: blur(6px);
+}
+.ba__hint::before,
+.ba__hint::after{
+  content: "↔";
+  display: inline-block;
+  margin: 0 6px;
+  opacity: .95;
+  font-size: 1.2em;            /* 矢印だけ強め */
+  animation: ba-nudge 1.6s ease-in-out infinite;
+}
+@keyframes ba-nudge{
+  0%,100%{ transform: translateX(0) }
+  50%    { transform: translateX(4px) }
+}
+
+/* スマホは少し小さく */
+@media (max-width: 767px){
+  .ba__hint{
+    font-size: .85rem;
+    padding: 6px 10px;
+  }
+}

@@ -397,3 +397,54 @@
 </html>
 
 
+<script>
+  // ==== PCだけ Before/After スライダーを有効化（インライン版） ====
+  (() => {
+    // PC（マウス）以外は何もしない
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  
+    const ba = document.getElementById('demo');
+    if (!ba) return;
+  
+    const after  = ba.querySelector('.ba__after');
+    const handle = ba.querySelector('.ba__handle span');
+    if (!after || !handle) return;
+  
+    let dragging = false;
+    let pct = 0.5; // 現在位置（0〜1）
+  
+    const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+    const setFromX = (clientX) => {
+      const rect = ba.getBoundingClientRect();
+      pct = clamp((clientX - rect.left) / rect.width, 0.03, 0.97);
+      const p = (pct * 100).toFixed(2) + '%';
+      after.style.clipPath = `inset(0 0 0 ${p})`;
+      handle.style.left = p;
+    };
+  
+    const onDown = (e) => { dragging = true; setFromX(e.clientX); e.preventDefault(); };
+    const onMove = (e) => { if (dragging) setFromX(e.clientX); };
+    const onUp   = () => { dragging = false; };
+  
+    // クリック＆ドラッグ
+    ba.addEventListener('mousedown', onDown);
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  
+    // クリックで位置変更もOK
+    ba.addEventListener('click', (e) => setFromX(e.clientX));
+  
+    // 初期位置：中央
+    requestAnimationFrame(() => {
+      const rect = ba.getBoundingClientRect();
+      setFromX(rect.left + rect.width / 2);
+    });
+  
+    // リサイズ時に割合を維持
+    window.addEventListener('resize', () => {
+      const rect = ba.getBoundingClientRect();
+      setFromX(rect.left + rect.width * pct);
+    });
+  })();
+  </script>
+  
