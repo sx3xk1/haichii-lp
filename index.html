@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Haichii｜空室写真を、たった数秒で“魅力的な一枚”に</title>
+  <meta name="description" content="家具を買わずに手間なく演出。不動産サイトもSNSも、反響とPVを引き上げます。ユーザー登録して無料で体験。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- 背景 -->
+  <div class="bg-blob blob-1" aria-hidden="true"></div>
+  <div class="bg-blob blob-2" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#" aria-label="Haichii Home">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 12L12 3l9 9-9 9-9-9Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 12l4-4 4 4-4 4-4-4Z" fill="currentColor"/>
+        </svg>
+        <span>Haichii</span>
+      </a>
+      <nav class="nav">
+        <a href="#features">特徴</a>
+        <a href="#usecases">活用例</a>
+        <a href="#pricing">料金</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="https://haichii.com/accounts/" class="btn btn--primary header-cta">ユーザー登録して無料で体験</a>
+      <button class="hamburger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+<section class="hero">
+  <div class="container hero__inner">
+
+    <!-- 見出し + サービス説明（上段） -->
+    <div class="hero__copy">
+      <h1 class="hero__title">
+        空室写真を、カンタン操作で<br>
+        <span class="nowrap"><span class="grad">“魅力的な一枚”</span>に</span>
+      </h1>
+      <p class="hero__desc">
+        HaichiiはAI技術を活用して空室写真に家具や小物を自然に配置し、<br>
+        数秒で“魅せる一枚”を作れるサービスです。
+      </p>
+    </div>
+
+    <!-- Before/After（中段） -->
+    <div class="hero__visual card shadow">
+      <div class="ba" id="demo">
+        <img class="ba__img ba__before"
+             src="./images/before.png" alt="Before"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;%23e9eef7&quot;/><text x=&quot;50%&quot; y=&quot;50%&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial, Helvetica, sans-serif&quot; font-size=&quot;40&quot; fill=&quot;%23889&quot;>Before</text></svg>';">
+        <img class="ba__img ba__after"
+             src="./images/after.png" alt="After"
+             onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<?xml version=&quot;1.0&quot;?><svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 1200 800&quot;><rect width=&quot;1200&quot; height=&quot;800&quot; fill=&quot;%23ddebf7&quot;/><text x=&quot;50%&quot; y=&quot;50%&quot; dominant-baseline=&quot;middle&quot; text-anchor=&quot;middle&quot; font-family=&quot;Arial, Helvetica, sans-serif&quot; font-size=&quot;40&quot; fill=&quot;%23666&quot;>After</text></svg>';">
+        <div class="ba__handle" aria-label="before after handle"><span></span></div>
+      </div>
+      <p class="caption">同じ部屋でも、見せ方で印象はここまで変わります。</p>
+    </div>
+
+    <!-- CTA + 追加の短い説明（下段） -->
+    <div class="hero__below">
+      <a href="https://haichii.com/accounts/" class="btn btn--primary btn--lg">ユーザー登録して無料で体験</a>
+      <p class="hero__note">
+        家具を買わずに、すぐに演出。不動産サイトでもSNSでも、第一印象から惹きつけます。
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- 特徴 -->
+<section id="features" class="section">
+  <div class="container">
+    <div class="section__head center">
+      <div class="eyebrow">家具配置AIツール</div>
+      <h2>Haichiiの特徴</h2>
+      <p class="muted">シンプルな操作で、反響につながる“魅せる一枚”を。</p>
+    </div>
+
+    <div class="feature-rows">
+      <!-- Row 1 -->
+      <article class="feature-row reveal">
+        <div class="feature-row__media">
+          <img
+            src="./images/speed.png"
+            alt="数秒で完成。空室写真が“魅せる一枚”に"
+            loading="lazy" decoding="async" width="1600" height="900"
+          />
+        </div>
+        <div class="feature-row__body">
+          <h3>数秒で完成。空室写真が“魅せる一枚”に</h3>
+          <p class="sub">
+            写真をアップロードしてスタイルを選ぶだけ。撮影準備や家具レンタルは不要です。
+            物件サイトにもSNSにも、そのまま使える仕上がりで第一印象を引き上げます。
+          </p>
+        </div>
+      </article>
+
+      <!-- Row 2（左右反転） -->
+      <article class="feature-row reveal">
+        <div class="feature-row__body">
+          <h3>好みに合わせてインテリアを選べる</h3>
+          <p class="sub">
+            ナチュラル／モダン／北欧など、多彩なスタイルから選択可能。
+            ターゲットに合わせた最適な見せ方で、閲覧者の印象を高めます。
+          </p>
+        </div>
+        <div class="feature-row__media">
+          <img
+            src="./images/variety-style.png"
+            alt="好みに合わせてインテリアを選べる"
+            loading="lazy" decoding="async" width="1600" height="900"
+          />
+        </div>
+      </article>
+
+      <!-- Row 3 -->
+      <article class="feature-row reveal">
+        <div class="feature-row__media">
+          <img
+            src="./images/commercial-use.png"
+            alt="SNSに最適化。PVと保存数を底上げ"
+            loading="lazy" decoding="async" width="1600" height="900"
+          />
+        </div>
+        <div class="feature-row__body">
+          <h3>SNSに最適化。PVと保存数を底上げ</h3>
+          <p class="sub">
+            出力比率は 1:1 / 4:5 / 16:9 などに対応。画質そのまま、投稿に最適な解像度で出力できるので、
+            フィードでもストーリーズでも映えます。
+          </p>
+        </div>
+      </article>
+
+      <!-- Row 4：企業ロゴの自動挿入 -->
+      <article class="feature-row reveal">
+        <div class="feature-row__body">
+          <h3>企業ロゴ合成も対応</h3>
+          <ul class="checklist sub">
+            <li>最初にアップロードしたロゴは保存され、次回以降は再アップロード不要</li>
+            <li>位置はプリセットから選択（例：下中央 など）</li>
+            <li>不透明度スライダーで透過度を調整</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <img
+            src="./images/simple-flow.png"
+            alt="企業ロゴ合成に対応"
+            loading="lazy" decoding="async" width="1600" height="900"
+          />
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+ <!-- 活用例 -->
+<section id="usecases" class="section alt">
+  <div class="container">
+    <div class="section__head">
+      <h2>活用例</h2>
+      <p class="muted">シーンに合わせた見せ方で、反響を底上げ。</p>
+    </div>
+    <div class="cards grid-3">
+      
+      <!-- 不動産仲介 -->
+      <div class="card shadow reveal">
+        <div class="card__media">
+          <img src="./images/tyuukai.png" alt="不動産仲介の活用例">
+        </div>
+        <div class="card__body">
+          <h3>不動産仲介</h3>
+          <p class="sub">掲載初動のCTRと問い合わせ率を改善。初週の内覧予約を前倒しに。</p>
+        </div>
+      </div>
+
+      <!-- 物件オーナー -->
+      <div class="card shadow reveal">
+        <div class="card__media">
+          <img src="./images/o-na-.png" alt="物件オーナーの活用例">
+        </div>
+        <div class="card__body">
+          <h3>物件オーナー</h3>
+          <p class="sub">ポータルやHPで差別化。空室期間の短縮と広告費の最適化に。</p>
+        </div>
+      </div>
+
+      <!-- SNS運用 -->
+      <div class="card shadow reveal">
+        <div class="card__media">
+          <img src="./images/syuukyaku.png" alt="SNS運用の活用例">
+        </div>
+        <div class="card__body">
+          <h3>SNS運用</h3>
+          <p class="sub">映える内観で投稿の保存・シェアを促進。PVやフォロワー獲得にも。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- 料金 -->
+  <section id="pricing" class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>料金プラン</h2>
+        <p class="muted">まずは無料で体験。必要に応じて柔軟に拡張できます。</p>
+      </div>
+
+      <div class="pricing grid-4">
+        <div class="plan card shadow reveal">
+          <h3 class="plan__name">ライトプラン</h3>
+          <p class="plan__price"><span>¥7,980</span><small>/月（税込）</small></p>
+          <p class="plan__note">30枚（1枚あたり ¥266）</p>
+          <ul class="list">
+            <li>すべての部屋タイプ</li>
+            <li>すべての家具スタイル</li>
+            <li>商用利用OK</li>
+            <li>ロゴ自動挿入</li>
+            <li>画像ストレージ付き</li>
+          </ul>
+          <a href="https://haichii.com/accounts/" class="btn btn--primary w-100">登録して無料で体験</a>
+        </div>
+
+        <div class="plan card shadow reveal">
+          <h3 class="plan__name">スタンダード</h3>
+          <p class="plan__price"><span>¥49,800</span><small>/月（税込）</small></p>
+          <p class="plan__note">200枚（1枚あたり ¥249）</p>
+          <ul class="list">
+            <li>小規模仲介・管理会社向け</li>
+            <li>全スタイル／全タイプ対応</li>
+            <li>商用利用OK</li>
+            <li>ロゴ自動挿入</li>
+            <li>画像ストレージ付き</li>
+          </ul>
+          <a href="https://haichii.com/accounts/" class="btn btn--primary w-100">登録して無料で体験</a>
+        </div>
+
+        <div class="plan card shadow reveal">
+          <h3 class="plan__name">プロ</h3>
+          <p class="plan__price"><span>ASK</span><small>/月</small></p>
+          <p class="plan__note">500枚〜（柔軟にカスタム対応）</p>
+          <ul class="list">
+            <li>物件数の多い事業者向け</li>
+            <li>全スタイル／全タイプ対応</li>
+            <li>商用利用OK</li>
+            <li>ロゴ自動挿入</li>
+            <li>画像ストレージ付き</li>
+          </ul>
+          <a href="https://s.lmes.jp/landing-qr/2007404893-zAj4D5yb?uLand=nxuZTx" class="btn btn--primary w-100">お問い合わせ</a>
+        </div>
+
+        <div class="plan card shadow reveal accent">
+          <div class="badge">おすすめ</div>
+          <h3 class="plan__name">バズサポートパック</h3>
+          <p class="plan__price"><span>¥198,000</span><small>/月（税込）</small></p>
+          <p class="plan__note">500枚＋SNS運用サポート</p>
+          <ul class="list">
+            <li>全スタイル／全タイプ対応</li>
+            <li>商用利用OK・ロゴ自動挿入</li>
+            <li>画像ストレージ付き</li>
+            <li>SNS運用サポート（戦略×実践）</li>
+            <li>月1回アカウント添削＆改善</li>
+            <li>ショート動画構成サポート</li>
+            <li>LINE公式アカウント自動化対応</li>
+          </ul>
+          <a href="https://haichii.com/accounts/" class="btn btn--primary w-100">登録して無料で体験</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>よくある質問</h2>
+        <p class="muted">導入前の不安を、ここで解消できます。</p>
+      </div>
+
+      <div class="faq">
+        <details class="faq__item reveal">
+          <summary>商用利用は可能ですか？</summary>
+          <p>はい、すべてのプランで商用利用可能です。クレジット表記は不要です。</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>個人でも使えますか？</summary>
+          <p>もちろんです。少量から気軽にご利用いただけます。</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>どんな写真が対応していますか？</summary>
+          <p>空室の室内写真（横長推奨）が最適です。スマホ撮影でも問題ありません。</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>仕上がりまでの時間は？</summary>
+          <p>一般的に数秒〜数十秒で完成します。バッチ処理にも対応しています。</p>
+        </details>
+      </div>
+
+    
+
+  <!-- サインアップ誘導（豪華CTA） -->
+<section id="signup" class="signup section">
+  <div class="container">
+    <div class="cta cta--lux card shadow">
+      <!-- 左：ロゴエリア（画像を差し替えてね） -->
+      <div class="cta__media">
+        <!-- ここに Haichii のロゴ画像を置く。PNG/SVG どちらでもOK -->
+        <img class="cta__logo"
+             src="images/haichii-logo.svg"
+             alt="Haichii"
+             onerror="this.closest('.cta__media').classList.add('no-logo')">
+        <span class="cta__logo-fallback">Haichii</span>
+      </div>
+
+      <!-- 右：文言＆ボタン -->
+      <div class="cta__body">
+        <span class="eyebrow">無料トライアル</span>
+        <h2 class="cta__title">いますぐ“魅せる一枚”を体験</h2>
+        <p class="cta__lead muted">
+          ユーザー登録後、無料体験がはじまります。
+        </p>
+
+        <div class="cta__actions">
+          <a href="https://haichii.com/accounts/" class="btn btn--primary btn--lg">
+            ユーザー登録して無料で体験
+          </a>
+          <!-- 安心チップ（リスク低減の一言） -->
+          <ul class="trustchips" aria-label="安心ポイント">
+            <li>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 10.5l-2-2 1.1-1.1 0.9 0.9 3.9-3.9L11.5 5z" fill="currentColor"/></svg>
+              カード不要
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 10.5l-2-2 1.1-1.1 0.9 0.9 3.9-3.9L11.5 5z" fill="currentColor"/></svg>
+              登録1分
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 10.5l-2-2 1.1-1.1 0.9 0.9 3.9-3.9L11.5 5z" fill="currentColor"/></svg>
+              商用OK
+            </li>
+            <li>
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 10.5l-2-2 1.1-1.1 0.9 0.9 3.9-3.9L11.5 5z" fill="currentColor"/></svg>
+              メールだけで開始
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 装飾グロー -->
+      <span class="cta__glow cta__glow--left" aria-hidden="true"></span>
+      <span class="cta__glow cta__glow--right" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>
+
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="logo small">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 12L12 3l9 9-9 9-9-9Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M8 12l4-4 4 4-4 4-4-4Z" fill="currentColor"/>
+        </svg>
+        <span>Haichii</span>
+      </div>
+      <nav class="footer__nav">
+        <a href="https://www.notion.so/27e6769baaeb80e7ad60c66044c22019?source=copy_link" target="_blank" rel="noopener noreferrer">利用規約</a>
+        <a href="https://www.notion.so/27e6769baaeb80ae977bf544816c6e9f?source=copy_link" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+        <a href="https://www.notion.so/27e6769baaeb80e78afae147b5f9d36b?source=copy_link" target="_blank" rel="noopener noreferrer">特定商取引法に基づく表記</a>
+      </nav>
+      
+      <p class="muted">© <span id="y"></span> Haichii</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
