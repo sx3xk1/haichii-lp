@@ -81,7 +81,7 @@ body{
 .btn--lg{padding:14px 26px; font-size:1.06rem}
 
 /* ===== Hero：縦並び＆中央寄せ ===== */
-.hero{padding:120px 0 56px}
+.hero{padding:80px 0 56px}
 .hero__inner{
   display:flex;
   flex-direction:column;
@@ -623,5 +623,63 @@ html { -webkit-text-size-adjust: 100% }
   .ba {
     touch-action: none;   /* ブラウザの標準スクロール操作を無効化 */
     user-select: none;    /* テキスト選択防止 */
+  }
+}
+
+/* ロゴ画像のサイズ調整 */
+.logo-img {
+  height: 42px;          /* ← PCではこれくらいがちょうど良い */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* ヘッダー内の縦位置バランス */
+.header__inner .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;              /* テキストとの間に少し余白 */
+}
+
+/* モバイル用にやや小さく */
+@media (max-width: 767px) {
+  .logo-img {
+    height: 34px;         /* スマホではちょっと小さめ */
+  }
+}
+
+/* しっかり拡張（PCだけ） */
+@media (min-width: 1024px){
+  .logo-img { height: 65px; }
+  .header__inner { height: 110px; }  /* 76〜80pxの間で好みで */
+}
+
+/* ==== スマホ版ヒーロー余白（上を少し詰める） ==== */
+@media (max-width: 768px){
+  .hero {
+    padding: 60px 0 40px !important;  /* ← 上80→68に変更、下も少し詰める */
+  }
+}
+
+
+/* ===== フッターロゴ調整 ===== */
+.footer-logo {
+  height: 50px;     /* ← 高さをお好みで変更（24〜40pxあたりがバランス良い） */
+  width: auto;
+  display: block;
+  object-fit: contain;
+  opacity: .9;      /* 少し控えめに見せたい場合 */
+}
+
+.footer .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* スマホでさらに小さく */
+@media (max-width: 767px) {
+  .footer-logo {
+    height: 40px;
   }
 }
